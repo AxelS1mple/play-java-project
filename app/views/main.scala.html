@@ -1,0 +1,31 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>@title</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/css.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/Hedercss.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+    </head>
+    <body>
+        <header>
+            <div class="header-container">
+                <h1>My Application</h1>
+                <nav>
+                    <ul>
+                        <li><a href="@routes.HomeController.home()">Home</a></li>
+                        <li><a href="@routes.WidgetController.listWidgets()">Widgets</a></li>
+                        <li><a href="@routes.HomeController.about()">About</a></li>
+                        <li><a href="@routes.HomeController.contact()">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+        @content
+        </main>
+    </body>
+</html>

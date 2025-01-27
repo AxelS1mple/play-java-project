@@ -1,0 +1,59 @@
+@import play.mvc.Http.Request
+@(widgets: Seq[Widget], form: Form[WidgetData])(implicit request: Request, messages: play.i18n.Messages)
+
+@main("Widgets") {
+
+    <hr/>
+
+    @* Global errors are not tied to any particular form field *@
+    @if(form.hasGlobalErrors) {
+        @form.globalErrors.asScala.map { (error: play.data.validation.ValidationError) =>
+            <div>
+                @error.key: @error.message
+            </div>
+        }
+    }
+
+    @helper.form(routes.WidgetController.createWidget(), Symbol("id") -> "widgetForm") {
+        @helper.CSRF.formField
+
+        @helper.inputText(form("name"), Symbol("_label") -> "Name", Symbol("placeholder") -> "name")
+
+        @helper.inputText(form("price"), Symbol("_label") -> "Price", Symbol("placeholder") -> "price")
+
+        <button type="submit">Create widget</button>
+    }
+
+
+    <script>
+            document.getElementById('widgetForm').addEventListener('submit', function(event) {
+                const name = document.querySelector('input[name="name"]').value.trim();
+                const price = document.querySelector('input[name="price"]').value.trim();
+
+                if (!name || !price) {
+                    event.preventDefault(); // Evita el envío del formulario
+                    alert('Porfavor Ingresa los datos correctos');
+                }
+            });
+    </script>
+
+    <hr/>
+
+    <h1>Datos</h1>
+
+    @* Flash shows updates to a page *@
+    @request.flash.asScala().data.map { case (name, value) =>
+    <div class="@name">@value</div>
+    }
+
+    <table>
+        <thead>
+            <tr><th>Name</th><th>Price</th>
+        </thead>
+        <tbody>
+        @for(w <- widgets) {
+            <tr><td>@w.name</td><td>@w.price</td></tr>
+        }
+        </tbody>
+    </table>
+}

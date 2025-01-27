@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #4a90e2, #bd93f9); /* Azul a lila */
+    color: #fff;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 10px;
+}
+
+table {
+    width: 70%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 19px;
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background: rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+}
+
+table tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+table tbody tr:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+form {
+    width: 50%;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+input[type="text"], button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="text"] {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+input[type="text"]::placeholder {
+    color: #ccc;
+}
+
+button {
+    background: #4a90e2;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #bd93f9;
+}
+
+.flash-message {
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    text-align: center;
+    border-radius: 4px;
+}

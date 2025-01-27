@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumb {
+    list-style: none;
+    padding: 10px 15px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    display: flex;
+    gap: 5px;
+}
+
+.breadcrumb-item {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.breadcrumb-item a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: default;
+}

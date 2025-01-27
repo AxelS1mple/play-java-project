@@ -1,0 +1,21 @@
+@(breadcrumbs: Map[String, String])
+
+@main("Breadcrumb Example") {
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+        @for((url, label) <- breadcrumbs) {
+            @if(url != breadcrumbs.last._1) {
+                <li class="breadcrumb-item"><a href="@url">@label</a></li>
+            } else {
+                <li class="breadcrumb-item active" aria-current="page">@label</li>
+            }
+        }
+        </ol>
+    </nav>
+
+    <div>
+        <ul>
+            <li>Please go to <a href="@routes.WidgetController.listWidgets()">List Widgets</a></li>
+        </ul>
+    </div>
+}
