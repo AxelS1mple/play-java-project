@@ -18,4 +18,14 @@ javacOptions ++= Seq(
   "-Xlint:unchecked",
   "-Xlint:deprecation",
   "-Werror"
-) 
+)
+
+// Dependencias necesarias
+libraryDependencies ++= Seq(
+  "org.scala-lang" % "scala-library" % scalaVersion.value, // Dependencia de Scala
+  "org.typelevel" %% "cats-core" % "2.6.1", // Ejemplo de otra dependencia (puedes agregar más)
+  "com.typesafe" % "config" % "1.4.1" // Otra dependencia común (ejemplo)
+)
+
+// Configuración adicional de compilación
+compile in Compile := ((compile in Compile) dependsOn clean).value

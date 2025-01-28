@@ -11,15 +11,9 @@ public class HomeController extends Controller {
     }
 
     public Result home() {
-        // Define los breadcrumbs con scala.collection.immutable.Map
-        Map<String, String> breadcrumbs = Map.apply(
-                "/", "Home",
-                "/home", "Dashboard"
-        );
-
-        // Pásalos a la vista
-        return ok(views.html.home.render(breadcrumbs));
+        return ok(views.html.home.render());
     }
+
 
 
     public Result about() {
@@ -31,11 +25,7 @@ public class HomeController extends Controller {
     }
 
     public Result breadcrumb() {
-        // Define los breadcrumbs con scala.collection.immutable.Map
-        Map<String, String> breadcrumbs = Map.apply(
-                "/", "Home"
-        );
-        return ok(views.html.home.render(breadcrumbs));
+        return ok(views.html.home.render());
     }
 
 }
